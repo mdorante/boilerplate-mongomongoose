@@ -112,8 +112,16 @@ const createAndSavePerson = (done) => {
 // Model.create() with the argument arrayOfPeople.
 // Note: You can reuse the model you instantiated in the previous exercise.
 
-var createManyPeople = function (arrayOfPeople, done) {
-  done(null /*, data*/);
+const arrayOfPeople = [
+  { name: "Mac", age: 26, favoriteFoods: ["Kool Aid", "Frozen Pizza"] },
+  { name: "Joey", age: 25, favoriteFoods: ["Curry Chicken"] },
+  { name: "Lou", age: 35, favoriteFoods: ["Caraotas"] },
+];
+const createManyPeople = (arrayOfPeople, done) => {
+  Person.create(arrayOfPeople, (err, data) => {
+    if (err) return console.error(err);
+    done(null, data);
+  });
 };
 
 /** # C[R]UD part II - READ #
